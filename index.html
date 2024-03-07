@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singil Stay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" sizes="76x76" type="image/x-icon"
+        href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open%20Sans:800');
+
+        :root {
+            --font: 2rem;
+        }
+
+
+        * {
+            font-family: "Nanum Gothic", sans-serif;
+        }
+
+        body {
+            /* flex-direction: column; */
+            /* justify-content: space-between; */
+
+            font-weight: 400;
+            font-style: normal;
+            gap: 2rem;
+            align-items: flex-start;
+            box-sizing: border-box;
+            /* padding: 5rem; */
+            background-color: rgba(1, 15, 28, 0.3);
+            background-blend-mode: color;
+            /* font-family: 'Open Sans'; */
+            margin: 0;
+        }
+
+        .row {
+            text-align: center;
+            margin-top: 30px;
+            margin-left: 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+        }
+
+        button {
+            display: flex;
+            margin-bottom: 100px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            font-family: 'Open Sans';
+            font-size: var(--font);
+            border-radius: calc(var(--font) * 0.6);
+            padding: calc(var(--font) * 0.5);
+            margin: 0;
+            line-height: 1;
+            position: relative;
+
+            background-color: transparent;
+            color: white;
+            box-shadow: inset 0 0 0 0 rgb(248, 249, 255, 0.5), inset 0 0 0 0 rgb(248, 249, 255, 0.3), 0 0 0 rgb(248, 249, 255, 0.2);
+            transition: all ease 0.2s;
+        }
+
+        button:hover {
+            box-shadow: inset 0 0 0 calc(var(--font) * 0.2) rgb(248, 249, 255, 0.5), inset 0 0 calc(var(--font) * 0.2) calc(var(--font) * 0.5) rgb(248, 249, 255, 0.3), 0 0 calc(var(--font) * 0.2) rgb(248, 249, 255, 0.2);
+        }
+
+
+        button::before {
+            content: '';
+            height: 110%;
+            width: 105%;
+            position: absolute;
+            border-radius: calc(var(--font) * 0.8);
+            background-color: transparent;
+        }
+
+        button:hover::before {
+            border: solid rgb(210, 255, 227, 0.8);
+            padding: calc(var(--font) * 0.08);
+            box-shadow: inset 0 0 calc(var(--font) * 0.2) calc(var(--font) * 0.2) rgb(186, 201, 255, 0.3);
+            filter: blur(calc(var(--font) * 0.06));
+            animation: borders infinite 2s linear;
+            opacity: 0.5;
+        }
+
+
+        button:hover>span::after {
+            opacity: 1;
+            transform: translateX(100%);
+            transition: all ease 1s;
+        }
+
+        .tab {
+            background-color: white;
+            color: black;
+        }
+
+
+
+        h1 {
+            color: white;
+            margin: 0;
+            position: relative;
+            top: 1rem;
+            font-style: italic;
+        }
+
+        .contents {
+            background-color: black(122, 25, 240);
+        }
+
+        .contents .tab-content img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <button class="tab">English<span></span></button>
+        <button >한글(click)<span></span></button>
+        <br>
+    </div>
+    <br>
+
+
+    <div class="contents">
+        <div class="tab-content" id="koreanContent" style="display: none;">
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[안내] 전체 지도</h2><img src="1.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] 찾아오시는 길</h2><img src="2.jpg" ></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[2] 찾아오시는 길</h2><img src="3.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] 찾아오시는 길 - 횡단보도</h2><img src="4.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[4] 찾아오시는 길</h2><img src="5.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[5] 찾아오시는 길 - CU</h2><img src="6.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] 찾아오시는 길</h2><img src="7.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] 찾아오시는 길</h2><img src="8.jpg"></div>
+            <hr><br><br><br><br>
+            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[안내] 지름길</h2><img src="s1.jpg"></div>
+            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] 지름길</h2><img src="s2.jpg"></div>
+            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] 분홍색 벽</h2><img src="s3.jpg"></div>
+            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] 지름길</h2><img src="s4.jpg"></div>
+        </div>
+        <div class="tab-content" id="englishContent" ">
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[info] Full Map</h2><img src="1.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] How to get here</h2><img src="2.jpg" ></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[2] How to get here</h2><img src="3.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] How to get here - CrossWalks</h2><img src="4.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[4] How to get here</h2><img src="5.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[5] How to get here - CU</h2><img src="6.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] How to get here</h2><img src="7.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] How to get here</h2><img src="8.jpg"></div>
+            <hr><br><br><br><br>
+            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[info] Short Course</h2><img src="s1.jpg"></div>
+            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] Directions to the subway</h2><img src="s2.jpg"></div>
+            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] pink wall</h2><img src="s3.jpg"></div>
+            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] Directions to the subway</h2><img src="s4.jpg"></div>
+
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var buttons = document.querySelectorAll('.row button');
+            var koreanContent = document.getElementById('koreanContent');
+            var englishContent = document.getElementById('englishContent');
+
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // 모든 버튼에서 'tab' 클래스를 제거
+                    buttons.forEach(function (btn) {
+                        btn.classList.remove('tab');
+                    });
+
+                    // 클릭된 버튼에 'tab' 클래스를 추가
+                    this.classList.add('tab');
+
+                    // 모든 탭 내용을 숨김
+                    koreanContent.style.display = 'none';
+                    englishContent.style.display = 'none';
+
+                    // 클릭된 버튼에 대응하는 탭 내용을 보임
+                    if (this.textContent.trim() === '한글(click)') {
+                        koreanContent.style.display = 'block';
+                    } else if (this.textContent.trim() === 'English') {
+                        englishContent.style.display = 'block';
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+
+</html>
