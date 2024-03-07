@@ -147,10 +147,15 @@
             <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] 찾아오시는 길</h2><img src="7.jpg"></div>
             <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] 찾아오시는 길</h2><img src="8.jpg"></div>
             <hr><br><br><br><br><br><br><br><br>
-            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[안내] 지름길</h2><img src="s1.jpg"></div>
-            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] 지름길</h2><img src="s2.jpg"></div>
-            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] 분홍색 벽</h2><img src="s3.jpg"></div>
-            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] 지름길</h2><img src="s4.jpg"></div>
+            <!-- HTML -->
+            <button id="toggleButton">[안내] 지름길</button>
+            <div id="toggleContent" style="display: none;">
+                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">여행가방(캐리어) 등이 없으시다면</h2><img src="s1.jpg"></div>
+                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] 지름길</h2><img src="s2.jpg"></div>
+                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] 분홍색 벽</h2><img src="s3.jpg"></div>
+                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] 지름길</h2><img src="s4.jpg"></div>
+            </div>
+
         </div>
         <div class="tab-content" id="englishContent" ">
             <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[info] Full Map</h2><img src="1.jpg"></div>
@@ -162,10 +167,14 @@
             <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] How to get here</h2><img src="7.jpg"></div>
             <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] How to get here</h2><img src="8.jpg"></div>
             <hr><br><br><br><br><br><br><br><br>
-            <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[info] Short Course</h2><img src="s1.jpg"></div>
+            <button id="toggleButton2">[info] Short Course</button>
+            <div id="toggleContent2" style="display: none;">
+                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[info] When you have no luggage</h2><img src="s1.jpg"></div>
             <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] Directions to the subway</h2><img src="s2.jpg"></div>
             <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] pink wall</h2><img src="s3.jpg"></div>
             <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] Directions to the subway</h2><img src="s4.jpg"></div>
+            </div>
+            
 
         </div>
     </div>
@@ -199,6 +208,25 @@
                 });
             });
         }
+
+        // JavaScript
+document.getElementById('toggleButton').addEventListener('click', function() {
+    var toggleContent = document.getElementById('toggleContent');
+    if (toggleContent.style.display === "none") {
+        toggleContent.style.display = "block";
+    } else {
+        toggleContent.style.display = "none";
+    }
+});
+
+document.getElementById('toggleButton2').addEventListener('click', function() {
+    var toggleContent = document.getElementById('toggleContent2');
+    if (toggleContent.style.display === "none") {
+        toggleContent.style.display = "block";
+    } else {
+        toggleContent.style.display = "none";
+    }
+});
     </script>
 </body>
 
