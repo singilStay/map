@@ -124,6 +124,17 @@
         .contents .tab-content img {
             width: 100%;
         }
+
+        .awesome-text {
+    color: #3498db; /* 텍스트 색상 */
+    font-size: 24px; /* 텍스트 크기 */
+    font-weight: bold; /* 텍스트 굵기 */
+    text-align: center; /* 텍스트 정렬 */
+    padding: 10px; /* 텍스트 주변 패딩 */
+    border: 2px solid #3498db; /* 테두리 스타일 */
+    border-radius: 5px; /* 테두리 둥글게 */
+    background-color: #f2f2f2; /* 배경색 */
+}
     </style>
 </head>
 
@@ -138,19 +149,21 @@
 
     <div class="contents">
         <div class="tab-content" id="koreanContent" style="display: none;">
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[안내] 전체 지도</h2><img src="1.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] 찾아오시는 길</h2><img src="2.jpg" ></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[🗺️안내] 전체 지도</h2><img src="1.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] 찾아오시는 길 - 1번 출구</h2><img src="2.jpg" ></div>
             <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[2] 횡단보도가 나오기 전까지 직진하세요.</h2><img src="3.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] 찾아오시는 길 - 횡단보도</h2><img src="4.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[4] 찾아오시는 길</h2><img src="5.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[5] 찾아오시는 길 - CU</h2><img src="6.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] 찾아오시는 길</h2><img src="7.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] 찾아오시는 길</h2><img src="8.jpg"></div>
-            <hr><br><br><br><br><br><br><br><br>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] 횡단보도 지나기</h2><img src="4.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[4] 영등포여자고등학교 건물을 바라보며 직진</h2><img src="5.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[5] CU를 지나서</h2><img src="6.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] 담벼락 지나 오른쪽 골목 바로 위 계단</h2><img src="7.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] 파란 대문 - 도착</h2><img src="8.jpg"></div>
+            <p class="awesome-text">도착했어요! 대단해요!<br> 파란 대문은 밀어서 열어주세요.</p>
+            <hr><br>
+            <img src="map_blue.png" alt="minimap"><br><br><br><br><br><br><br>
             <!-- HTML -->
             <button id="toggleButton">[안내] 지름길</button>
             <div id="toggleContent" style="display: none;">
-                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">여행가방(캐리어) 등이 없으시다면</h2><img src="s1.jpg"></div>
+                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">여행가방(캐리어 등) 짐이 없다면</h2><img src="s1.jpg"></div>
                 <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] 지름길</h2><img src="s2.jpg"></div>
                 <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] 분홍색 벽</h2><img src="s3.jpg"></div>
                 <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] 지름길</h2><img src="s4.jpg"></div>
@@ -158,18 +171,20 @@
 
         </div>
         <div class="tab-content" id="englishContent" ">
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[info] Full Map</h2><img src="1.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] How to get here</h2><img src="2.jpg" ></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[🗺️Info] Full Map</h2><img src="1.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] How to get here - ① Exit</h2><img src="2.jpg" ></div>
             <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[2] Go straight until you reach the crosswalk.</h2><img src="3.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] How to get here - CrossWalks</h2><img src="4.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[4] How to get here</h2><img src="5.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[5] How to get here - CU</h2><img src="6.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] How to get here</h2><img src="7.jpg"></div>
-            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] How to get here</h2><img src="8.jpg"></div>
-            <hr><br><br><br><br><br><br><br><br>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] Cross the crosswalk</h2><img src="4.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[4] Walking around the high school building</h2><img src="5.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[5] Past the CU[convenience store]</h2><img src="6.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] Stairs just above the alley on the right past the wall</h2><img src="7.jpg"></div>
+            <div><h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] Arrival at the blue gate</h2><img src="8.jpg"></div>
+            <p class="awesome-text">Arrived! awesome<br> Please push the front door to open it.</p>
+            <hr><br>
+            <img src="map_blue.png" alt="minimap"><br><br><br><br><br><br><br>
             <button id="toggleButton2">[info] Short Course</button>
             <div id="toggleContent2" style="display: none;">
-                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[info] When you have no luggage</h2><img src="s1.jpg"></div>
+                <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">- When you have no luggage</h2><img src="s1.jpg"></div>
             <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] Directions to the subway</h2><img src="s2.jpg"></div>
             <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] pink wall</h2><img src="s3.jpg"></div>
             <div><h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] Directions to the subway</h2><img src="s4.jpg"></div>
