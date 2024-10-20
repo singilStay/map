@@ -148,14 +148,32 @@
 
 <body>
     <div class="row">
-        <button class="tab">English<span></span></button>
-        <button>한글용<span></span></button>
+        <button class="tab">Directions<span></span></button>
+        <button>Using boilers<span></span></button>
+        <button>오시는길<span></span></button>
         <br>
     </div>
     <br>
 
 
     <div class="contents">
+        <div class="tab-content" id="gasContent" style="display: none;">
+            <div>
+                <h2 style="background-color: rgba(255, 255, 0, 0.622);">How to Use the Boiler</h2><img src="gas-on.png">
+            </div>
+
+            <p class="awesome-text">To check the heating, look for the phrase 'Heating', and to check the hot water, look for the phrase 'Hot Water' </p>
+
+            <hr><br>
+            <div>
+                <h2 style="background-color: rgba(255, 255, 0, 0.622);">How to Set Indoor Heating <br>- Press the heating button and adjust the dial to set your desired indoor temperature.</h2><img src="gas-1.png">
+            </div>
+
+            <!-- HTML -->
+
+
+        </div>
+        <!-- -------------- -->
         <div class="tab-content" id="koreanContent" style="display: none;">
             <div>
                 <h2 style="background-color: rgba(255, 255, 0, 0.622);">[🗺️안내] 전체 지도</h2><img src="1.jpg">
@@ -164,7 +182,7 @@
                 <h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] 찾아오시는 길 - 1번 출구</h2><img src="2.jpg">
             </div>
             <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[2] 횡단보도가 나오기 전까지 직진하세요.</h2><img src="3.jpg">
+                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[2] 횡단보도가 나오기 전까지 직진</h2><img src="3.jpg">
             </div>
             <div>
                 <h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] 횡단보도 지나기</h2><img src="4.jpg">
@@ -202,7 +220,7 @@
             </div>
 
         </div>
-        <div class="tab-content" id="englishContent" ">
+        <div class="tab-content" id="englishContent">
             <div><h2 style=" background-color: rgba(255, 255, 0, 0.622);">[🗺️Info] Full Map</h2><img src="1.jpg">
         </div>
         <div>
@@ -261,6 +279,7 @@
             var buttons = document.querySelectorAll('.row button');
             var koreanContent = document.getElementById('koreanContent');
             var englishContent = document.getElementById('englishContent');
+            var gasContent = document.getElementById('gasContent');
 
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
@@ -275,12 +294,15 @@
                     // 모든 탭 내용을 숨김
                     koreanContent.style.display = 'none';
                     englishContent.style.display = 'none';
+                    gasContent.style.display = 'none';
 
                     // 클릭된 버튼에 대응하는 탭 내용을 보임
-                    if (this.textContent.trim() === '한글용') {
+                    if (this.textContent.trim() === '오시는길') {
                         koreanContent.style.display = 'block';
-                    } else if (this.textContent.trim() === 'English') {
+                    } else if (this.textContent.trim() === 'Directions') {
                         englishContent.style.display = 'block';
+                    } else if (this.textContent.trim() === 'Using boilers') {
+                        gasContent.style.display = 'block';
                     }
                 });
             });
