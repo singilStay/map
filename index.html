@@ -151,12 +151,33 @@
         <button class="tab">Directions<span></span></button>
         <button>Using boilers<span></span></button>
         <button>오시는길<span></span></button>
+        <button>Delivery<span></span></button>
         <br>
     </div>
     <br>
 
 
     <div class="contents">
+        <div class="tab-content" id="deliveryContent" style="display: none; ">
+            <div class="contents">
+                <p style="font-size: 1.5rem; font-weight: bold; color: #333; text-align: center;">호수를 꼭 입력해주세요<br>Please make sure to enter the number.<br>请务必输入号码</p>
+                <br>
+                <strong style="background-color: rgb(236, 236, 84);">● Full Address</strong>
+                <div style="background-color: #e0f7fa; padding: 10px; border-radius: 5px;">
+                    서울특별시 영등포구 영등포로62길 24, <br>뒷골목 파란 대문 ***호
+                    <button onclick="copyToClipboard('서울특별시 영등포구 영등포로62길 24, 뒷골목 파란 대문 ###호')" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Copy</button>
+                </div>
+        
+                <br>
+                <strong style="background-color: rgb(236, 236, 84);">● Detail Address</strong>
+                <div style="background-color: #e0f7fa; padding: 10px; border-radius: 5px;">
+                    뒷골목 파란 대문 ***호
+                    <button onclick="copyToClipboard('뒷골목 파란 대문 ***호')" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Copy</button>
+                </div>
+            </div>
+        </div>
+
+
         <div class="tab-content" id="gasContent" style="display: none;">
             <div>
                 <h2 style="background-color: rgba(255, 255, 0, 0.622);">How to Use the Boiler</h2><img src="gas-on.png">
@@ -307,6 +328,7 @@
             var koreanContent = document.getElementById('koreanContent');
             var englishContent = document.getElementById('englishContent');
             var gasContent = document.getElementById('gasContent');
+            var deliveryContent = document.getElementById('deliveryContent');
 
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
@@ -322,6 +344,7 @@
                     koreanContent.style.display = 'none';
                     englishContent.style.display = 'none';
                     gasContent.style.display = 'none';
+                    deliveryContent.style.display = 'none';
 
                     // 클릭된 버튼에 대응하는 탭 내용을 보임
                     if (this.textContent.trim() === '오시는길') {
@@ -330,6 +353,8 @@
                         englishContent.style.display = 'block';
                     } else if (this.textContent.trim() === 'Using boilers') {
                         gasContent.style.display = 'block';
+                    } else if (this.textContent.trim() === 'Delivery') {
+                        deliveryContent.style.display = 'block';
                     }
                 });
             });
@@ -353,6 +378,14 @@
                 toggleContent.style.display = "none";
             }
         });
+
+        function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('Copied to clipboard');
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
     </script>
 </body>
 
