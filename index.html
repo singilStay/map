@@ -4,145 +4,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singil Stay</title>
+    <title>Singil Stay - Modern Style</title>
+    <meta name="description" content="Singil Stay - Directions and Information">
+    <meta property="og:image" content="ogimage.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="shortcut icon" sizes="76x76" type="image/x-icon"
         href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Open%20Sans:800');
+        /* --- Modern CSS for Singil Stay --- */
 
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+
+        /* --- Variables for easy theme management --- */
         :root {
-            --font: 2rem;
+            --primary-color: #3498db;
+            /* A modern blue */
+            --secondary-color: #555;
+            /* Dark gray for text */
+            --light-gray: #f8f9fa;
+            /* Very light gray for backgrounds */
+            --border-color: #dee2e6;
+            /* Standard border color */
+            --highlight-bg: #e0f7fa;
+            /* Light cyan for highlights */
+            --warning-bg: #fff3cd;
+            /* Softer yellow for warnings/notes */
+            --accent-bg: #e2dffc;
+            /* Soft purple for accents */
+            --success-color: #28a745;
+            /* Green for success/copy */
+            --naver-color: #19ce60;
+            /* Naver green */
+            --dark-color: #343a40;
+            /* Dark color for contrast */
+
+            --base-font-size: 16px;
+            --heading-font-weight: 700;
+            --base-font-weight: 400;
+            --line-height: 1.6;
+            --border-radius: 0.3rem;
+            --spacing-unit: 1rem;
+            /* Base spacing unit */
+
+            --font-family-base: "Nanum Gothic", sans-serif;
         }
 
-
+        /* --- Base & Reset --- */
         * {
-            font-family: "Nanum Gothic", sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            /* flex-direction: column; */
-            /* justify-content: space-between; */
-
-            font-weight: 400;
-            font-style: normal;
-            gap: 2rem;
-            align-items: flex-start;
-            box-sizing: border-box;
-            /* padding: 5rem; */
-            background-color: rgba(0, 0, 0, 0.3);
-            background-blend-mode: color;
-            /* font-family: 'Open Sans'; */
-            margin: 0;
+            font-family: var(--font-family-base);
+            font-size: var(--base-font-size);
+            line-height: var(--line-height);
+            color: var(--secondary-color);
+            background-color: rgb(195, 195, 195);
+            /* Slightly off-white background */
+            padding: calc(var(--spacing-unit) * 1.5);
+            font-weight: var(--base-font-weight);
         }
 
+        /* --- Tab Buttons --- */
         .row {
-            text-align: center;
-            margin-top: 30px;
-            margin-left: 30px;
             display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 1rem;
             flex-wrap: wrap;
-
+            /* Allow buttons to wrap on smaller screens */
+            gap: calc(var(--spacing-unit) * 0.5);
+            /* Space between buttons */
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            padding-bottom: var(--spacing-unit);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        button {
-            display: flex;
-            margin-bottom: 100px;
-            flex-direction: row;
+        .row button {
+            /* Resetting old styles */
+            border: 1px solid var(--border-color);
+            background-color: #ffffff;
+            color: var(--secondary-color);
+            padding: calc(var(--spacing-unit) * 0.6) calc(var(--spacing-unit) * 1.2);
+            font-size: 0.95rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+            font-family: var(--font-family-base);
+            /* Ensure font consistency */
+            line-height: 1.2;
+            /* Adjust for button height */
+            margin: 0;
+            /* Override default margins */
+            display: inline-flex;
+            align-items: center;
+            box-shadow: none;
+            /* Remove old shadow */
+            position: relative;
+            /* Keep for potential future pseudo-elements if needed */
+        }
+
+        .row button:hover {
+            background-color: var(--light-gray);
+            border-color: var(--secondary-color);
+            color: var(--dark-color);
+            box-shadow: none;
+            /* Remove old shadow */
+        }
+
+        /* Active Tab Style */
+        .row button.tab {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            font-weight: var(--heading-font-weight);
+        }
+
+        /* Hide the empty span used in the original HTML */
+        .row button span {
+            display: none;
+        }
+
+        /* Remove old ::before hover effects */
+        .row button::before {
+            display: none;
+        }
+
+        /* --- Content Area --- */
+        .contents {
+            padding-top: var(--spacing-unit);
+        }
+
+        .tab-content {
+            display: none;
+            /* Initially hidden - controlled by JS */
+            /* Consider adding a fade-in animation if JS is updated to toggle classes */
+            /* animation: fadeIn 0.5s ease-in-out; */
+        }
+
+        /* --- Content Elements Styling --- */
+        .tab-content h2 {
+            font-size: 1.5rem;
+            font-weight: var(--heading-font-weight);
+            color: var(--dark-color);
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            margin-bottom: var(--spacing-unit);
+            padding: calc(var(--spacing-unit) * 0.75);
+            border-left: 4px solid var(--primary-color);
+            background-color: white;
+            /* Cleaner background */
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Specific background colors using more semantic approach */
+        .heading-highlight {
+            background-color: var(--warning-bg);
+            border-left-color: #ffc107;
+            /* Matching yellow */
+        }
+
+        .heading-accent {
+            background-color: var(--accent-bg);
+            border-left-color: #6f42c1;
+            /* Matching purple */
+        }
+
+        .tab-content img {
+            max-width: 100%;
+            /* Responsive images */
+            height: auto;
+            display: block;
+            /* Remove extra space below image */
+            margin: var(--spacing-unit) auto;
+            /* Center images with margin */
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+
+        .tab-content p {
+            margin-bottom: var(--spacing-unit);
+        }
+
+        /* Modernized info-text style */
+        .info-text {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: var(--spacing-unit);
+            margin: var(--spacing-unit) 0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            color: var(--dark-color);
+            /* Better contrast */
+            text-align: left;
+            /* Reset text align */
+        }
+
+        .info-text strong {
+            color: var(--primary-color);
+            font-weight: var(--heading-font-weight);
+        }
+
+        .info-text br {
+            content: "";
+            display: block;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            /* Space after breaks */
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: calc(var(--spacing-unit) * 1.5) 0;
+        }
+
+        /* --- Utility Buttons (Copy, Naver, Toggle) --- */
+        .btn {
+            /* Base class for utility buttons */
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
+            font-size: 0.9rem;
+            font-weight: var(--heading-font-weight);
             border: none;
-            font-family: 'Open Sans';
-            font-size: var(--font);
-            border-radius: calc(var(--font) * 0.6);
-            padding: calc(var(--font) * 0.5);
-            margin: 0;
-            line-height: 1;
-            position: relative;
-
-            background-color: transparent;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-decoration: none;
+            /* For <a> styled as buttons */
+            transition: background-color 0.2s ease, opacity 0.2s ease;
+            margin: calc(var(--spacing-unit) / 4);
             color: white;
-            box-shadow: inset 0 0 0 0 rgb(248, 249, 255, 0.5), inset 0 0 0 0 rgb(248, 249, 255, 0.3), 0 0 0 rgb(248, 249, 255, 0.2);
-            transition: all ease 0.2s;
+            line-height: 1.2;
         }
 
-        button:hover {
-            box-shadow: inset 0 0 0 calc(var(--font) * 0.2) rgb(248, 249, 255, 0.5), inset 0 0 calc(var(--font) * 0.2) calc(var(--font) * 0.5) rgb(248, 249, 255, 0.3), 0 0 calc(var(--font) * 0.2) rgb(248, 249, 255, 0.2);
+        .btn:hover {
+            opacity: 0.9;
         }
 
-
-        button::before {
-            content: '';
-            height: 110%;
-            width: 105%;
-            position: absolute;
-            border-radius: calc(var(--font) * 0.8);
-            background-color: transparent;
+        .btn-copy {
+            background-color: var(--success-color);
         }
 
-        button:hover::before {
-            border: solid rgb(210, 255, 227, 0.8);
-            padding: calc(var(--font) * 0.08);
-            box-shadow: inset 0 0 calc(var(--font) * 0.2) calc(var(--font) * 0.2) rgb(186, 201, 255, 0.3);
-            filter: blur(calc(var(--font) * 0.06));
-            animation: borders infinite 2s linear;
-            opacity: 0.5;
+        .btn-naver {
+            background-color: var(--naver-color);
         }
 
-
-        button:hover>span::after {
-            opacity: 1;
-            transform: translateX(100%);
-            transition: all ease 1s;
+        .btn-toggle {
+            background-color: var(--secondary-color);
+            border: 1px solid var(--dark-color);
         }
 
-        .tab {
-            background-color: white;
-            color: black;
+        .btn-toggle:hover {
+            background-color: var(--dark-color);
         }
 
-
-
-        h1 {
-            color: white;
-            margin: 0;
-            position: relative;
-            top: 1rem;
-            font-style: italic;
-        }
-
-        .contents {
-            background-color: black(122, 25, 240);
-        }
-
-        .contents .tab-content img {
-            width: 100%;
-        }
-
-        .awesome-text {
-            color: #3498db;
-            /* 텍스트 색상 */
-            font-size: 24px;
-            /* 텍스트 크기 */
-            font-weight: bold;
-            /* 텍스트 굵기 */
+        /* Specific container for toggle buttons */
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: var(--spacing-unit) 0;
             text-align: center;
-            /* 텍스트 정렬 */
-            padding: 10px;
-            /* 텍스트 주변 패딩 */
-            border: 2px solid #3498db;
-            /* 테두리 스타일 */
-            border-radius: 5px;
-            /* 테두리 둥글게 */
-            background-color: #f2f2f2;
-            /* 배경색 */
+            /* Center toggle button */
         }
+
+        .toggle-container>div {
+            /* Style the content div inside */
+            margin-top: var(--spacing-unit);
+            width: 100%;
+            /* Ensure content takes full width */
+        }
+
+
+        /* --- Delivery Address Section --- */
+        .address-highlight {
+            background-color: var(--highlight-bg);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            /* Wrap on small screens */
+            gap: var(--spacing-unit);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .address-highlight strong {
+            /* Style the label */
+            font-weight: var(--heading-font-weight);
+            color: var(--dark-color);
+            margin-bottom: calc(var(--spacing-unit) * 0.25);
+            display: block;
+            /* Ensure it's on its own line */
+            width: 100%;
+            /* Take full width */
+            background-color: transparent;
+            /* Remove original style */
+            padding: 0;
+            /* Reset padding if any */
+        }
+
+        .address-text {
+            /* Wrap the actual address text */
+            flex-grow: 1;
+            /* Allow text to take space */
+            word-break: keep-all;
+            /* Prevent awkward breaks in Korean */
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+            margin-right: var(--spacing-unit);
+            /* Space before button */
+        }
+
+        /* --- Parking Info Table --- */
+        .parking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-unit) 0;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            font-size: 0.95rem;
+        }
+
+        .parking-table th,
+        .parking-table td {
+            border: 1px solid var(--border-color);
+            padding: calc(var(--spacing-unit) * 0.75);
+            text-align: left;
+            vertical-align: top;
+            background-color: white;
+            /* Ensure white background */
+        }
+
+        .parking-table thead th {
+            background-color: var(--light-gray);
+            font-weight: var(--heading-font-weight);
+            color: var(--dark-color);
+        }
+
+        .parking-table tbody tr:nth-child(even) {
+            background-color: var(--light-gray);
+            /* Subtle striping */
+        }
+
+        .parking-table tbody tr:hover {
+            background-color: var(--highlight-bg);
+            /* Hover effect */
+        }
+
+
+        /* --- Responsiveness --- */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--spacing-unit);
+                font-size: calc(var(--base-font-size) * 0.95);
+                /* Slightly smaller base font */
+            }
+
+            .row {
+                gap: calc(var(--spacing-unit) * 0.4);
+                /* Smaller gap */
+                justify-content: center;
+                /* Center buttons when wrapped */
+            }
+
+            .row button {
+                padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
+                font-size: 0.9rem;
+            }
+
+            .tab-content h2 {
+                font-size: 1.3rem;
+                padding: calc(var(--spacing-unit) * 0.6);
+            }
+
+            .address-highlight {
+                flex-direction: column;
+                /* Stack elements vertically */
+                align-items: flex-start;
+            }
+
+            .address-text {
+                margin-right: 0;
+                /* Remove right margin when stacked */
+                margin-bottom: calc(var(--spacing-unit) * 0.5);
+                /* Add space below text */
+            }
+
+
+            .address-highlight .btn-copy {
+                align-self: flex-end;
+                /* Keep button to the right */
+                width: auto;
+                /* Don't force full width */
+            }
+
+            .parking-table {
+                font-size: 0.9rem;
+            }
+
+            .parking-table th,
+            .parking-table td {
+                padding: calc(var(--spacing-unit) * 0.5);
+            }
+
+            /* Make utility buttons potentially full-width if needed */
+            /* .btn { width: 100%; margin-bottom: var(--spacing-unit); } */
+        }
+
+        /* --- Keyframe animation (optional, if JS is updated) --- */
+        /* @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        } */
     </style>
 </head>
 
@@ -150,251 +433,365 @@
     <div class="row">
         <button class="tab">Directions<span></span></button>
         <button>Using boilers<span></span></button>
-        <button>오시는길<span></span></button>
+        <button>Using the Air Conditioner<span></span></button>
         <button>Delivery<span></span></button>
-        <br>
+        <button>오시는길<span></span></button>
+        <button>공영주차장 안내<span></span></button>
     </div>
-    <br>
-
 
     <div class="contents">
-        <div class="tab-content" id="deliveryContent" style="display: none; ">
-            <div class="contents">
-                <p style="font-size: 1.5rem; font-weight: bold; color: #333; text-align: center;">호수를 꼭 입력해주세요<br>Please make sure to enter the number.<br>请务必输入号码</p>
-                <br>
-                <strong style="background-color: rgb(236, 236, 84);">● Full Address</strong>
-                <div style="background-color: #e0f7fa; padding: 10px; border-radius: 5px;">
-                    서울특별시 영등포구 영등포로62길 24, <br>뒷골목 파란 대문 ***호
-                    <button onclick="copyToClipboard('서울특별시 영등포구 영등포로62길 24, 뒷골목 파란 대문 ###호')" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Copy</button>
-                </div>
-        
-                <br>
-                <strong style="background-color: rgb(236, 236, 84);">● Detail Address</strong>
-                <div style="background-color: #e0f7fa; padding: 10px; border-radius: 5px;">
-                    뒷골목 파란 대문 ***호
-                    <button onclick="copyToClipboard('뒷골목 파란 대문 ***호')" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Copy</button>
-                </div>
-            </div>
-        </div>
 
+        <div class="tab-content" id="deliveryContent">
+            <p style="font-size: 1.5rem; font-weight: bold; color: #333; text-align: center;">방번호(호수)와 뒷골목을 꼭
+                입력해주세요.<br>
+                Please make sure to enter the room number and the back alley.
 
-        <div class="tab-content" id="gasContent" style="display: none;">
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">How to Use the Boiler</h2><img src="gas-on.png">
-            </div>
-
-            <p class="awesome-text">To check the heating, look for the phrase 'Heating', and to check the hot water, look for the phrase 'Hot Water=온수' <br><br>💧Hot water must be set at 60 degrees🌡
-                <br><br>检查加热时，查找“Heating”字样；检查热水时，查找“Hot Water=온수”字样。
-
-                <br>💧热水必须设置为60度🌡
-
-                <br><br>난방을 사용하시려면 '난방' 버튼을 눌러주세요, <br>
-
-                💧온수는 60도에 설정되어야 합니다🌡
+                <br>请务必输入房间号和后巷。
             </p>
-
-
-            <hr><br>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">How to Set Indoor Heating <br>- Press the heating button and adjust the dial to set your desired indoor temperature.<br><br>如何设置室内加热
-
-                    按下加热按钮，<br> - 并调整旋钮设置您希望的室内温度。<br><br>실내 난방 설정 방법 <br> - 난방 버튼을 눌러 다이얼을 조정하여 원하는 실내 온도를 설정하세요.</h2><img src="gas-1.png">
+            <br>
+            <div class="address-highlight">
+                <strong>● Full Address</strong>
+                <span class="address-text">서울특별시 영등포구 영등포로62길 24, <br>뒷골목 파란 대문 ***호</span>
+                <button class="btn btn-copy"
+                    onclick="copyToClipboard('서울특별시 영등포구 영등포로62길 24, 뒷골목 파란 대문 ###호')">Copy</button>
             </div>
 
-            <hr><br>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">If the room does not warm up even when the heating mode is on, please check the ondol temperature setting.
-
-                    <br>- If the ondol temperature is set to 75°C, press the heating button again.<br><br>如果即使在开启加热模式时房间仍未变暖，请检查温控设置。<br>
-
-                    - 如果温控设置为75°C，请再次按下加热按钮。<br><br> 난방 모드가 켜져 있는데도 방이 따뜻해지지 않으면 온돌 온도 설정을 확인하세요. <br>- 온돌 온도가 75°C로 설정되어 있으면, 난방 버튼을 다시 눌러주세요.</h2><img src="B1.png">
+            <div class="address-highlight">
+                <strong>● Detail Address</strong>
+                <span class="address-text">뒷골목 파란 대문 ***호</span>
+                <button class="btn btn-copy" onclick="copyToClipboard('뒷골목 파란 대문 ***호')">Copy</button>
             </div>
-
-            <hr><br>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">How to Set Indoor Heating <br>- Press the heating button and adjust the dial to set your desired indoor temperature.<br><br>如何设置室内加热
-
-                    按下加热按钮，<br> - 并调整旋钮设置您希望的室内温度。<br><br>실내 난방 설정 방법 <br> - 난방 버튼을 눌러 다이얼을 조정하여 원하는 실내 온도를 설정하세요.</h2><img src="gas-1.png">
-            </div>
-            <!-- HTML -->
-
-
         </div>
-        <!-- -------------- -->
-        <div class="tab-content" id="koreanContent" style="display: none;">
+
+        <div class="tab-content" id="airContent">
             <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[🗺️안내] 전체 지도</h2><img src="1.jpg">
+                <h2 class="heading-highlight">How to Use the Air Conditioner</h2>
+                <img src="cool.png" alt="Air Conditioner Remote">
             </div>
+            <p class="info-text">The air conditioner must be set to cooling mode.
+                After lowering the temperature and waiting a moment, cool air will start to come out.<br><br>
+                空调必须设置为制冷模式。
+                调低温度后稍等片刻，就会开始吹出冷风。<br><br>
+                에어컨은 반드시 냉방 모드로 설정해야 하며, 온도를 낮춘 후 잠시 기다리면 시원한 바람이 나옵니다.
+            </p>
+        </div>
+
+        <div class="tab-content" id="gasContent">
             <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] 찾아오시는 길 - 1번 출구</h2><img src="2.jpg">
+                <h2 class="heading-highlight">How to Use the Boiler</h2>
+                <img src="gas-on.png" alt="Boiler Control Panel">
             </div>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[2] 횡단보도가 나오기 전까지 직진</h2><img src="3.jpg">
-            </div>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] 횡단보도 지나기</h2><img src="4.jpg">
-            </div>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[4] 영등포여자고등학교 건물을 바라보며 직진</h2><img src="5.jpg">
-            </div>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[5] CU를 지나서</h2><img src="6.jpg">
-            </div>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] 담벼락 지나 오른쪽 골목 바로 위 계단</h2><img src="7.jpg">
-            </div>
-            <div>
-                <h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] 파란 대문 - 도착</h2><img src="8.jpg">
-            </div>
-            <p class="awesome-text">도착했어요! 대단해요!<br> 파란 대문은 밀어서 열어주세요.</p>
+            <p class="info-text">To check the heating, look for the phrase 'Heating', and to check the hot water,
+                look for the phrase 'Hot Water=온수' <br><br><strong>💧Hot water must be set at 60 degrees🌡</strong>
+                <br><br>检查加热时，查找“Heating”字样；检查热水时，查找“Hot Water=온수”字样。
+                <br><strong>💧热水必须设置为60度🌡</strong>
+                <br><br>난방을 사용하시려면 '난방' 버튼을 눌러주세요, <br>
+                <strong>💧온수는 60도에 설정되어야 합니다🌡</strong>
+            </p>
             <hr><br>
-            <img src="map_blue.jpg" alt="minimap"><br><br><br><br><br><br><br>
-            <!-- HTML -->
-            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                <button id="toggleButton" style="border: 3px solid gray; background-color: black;">[안내] 지름길 가는법</button>
+            <div>
+                <h2 class="heading-highlight">How to Set Indoor Heating <br>- Press the
+                    heating button and adjust the dial to set your desired indoor temperature.<br><br>如何设置室内加热
+                    按下加热按钮，<br> - 并调整旋钮设置您希望的室内温度。<br><br>실내 난방 설정 방법 <br> - 난방 버튼을 눌러 다이얼을 조정하여 원하는 실내 온도를 설정하세요.</h2>
+                <img src="gas-1.png" alt="Setting Indoor Heating">
+            </div>
+            <hr><br>
+            <div>
+                <h2 class="heading-highlight">If the room does not warm up even when the
+                    heating mode is on, please check the ondol temperature setting.
+                    <br>- If the ondol temperature is set to 75°C, press the heating button
+                    again.<br><br>如果即使在开启加热模式时房间仍未变暖，请检查温控设置。<br>
+                    - 如果温控设置为75°C，请再次按下加热按钮。<br><br> 난방 모드가 켜져 있는데도 방이 따뜻해지지 않으면 온돌 온도 설정을 확인하세요. <br>- 온돌 온도가 75°C로
+                    설정되어 있으면, 난방 버튼을 다시 눌러주세요.
+                </h2><img src="B1.png" alt="Checking Ondol Temperature">
+            </div>
+            <hr>
+            <div>
+                <h2 class="heading-highlight"> Press the
+                    heating button and adjust the dial to set your desired indoor temperature.<br><br>如何设置室内加热
+                    按下加热按钮，<br> - 并调整旋钮设置您希望的室内温度。<br> <br> - 난방 버튼을 눌러 다이얼을 조정하여 원하는 실내 온도를 설정하세요.</h2>
+                <img src="gas-1.png" alt="Setting Indoor Heating">
+
+            </div>
+            <br>
+        </div>
+
+        <div class="tab-content" id="koreanContent">
+            <div>
+                <h2 class="heading-highlight">[🗺️안내] 전체 지도</h2><img src="1.jpg" alt="전체 지도">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[1] 찾아오시는 길 - 1번 출구</h2><img src="2.jpg" alt="신길역 1번 출구">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[2] 횡단보도가 나오기 전까지 직진</h2><img src="3.jpg" alt="직진 경로">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[3] 횡단보도 지나기</h2><img src="4.jpg" alt="횡단보도">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[4] 영등포여자고등학교 건물을 바라보며 직진</h2><img src="5.jpg" alt="영등포여고 방향">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[5] CU를 지나서</h2><img src="6.jpg" alt="CU 편의점">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[6] 담벼락 지나 오른쪽 골목 바로 위 계단</h2><img src="7.jpg" alt="골목 계단">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[7] 파란 대문 - 도착</h2><img src="8.jpg" alt="파란 대문 도착">
+            </div>
+            <p class="info-text">도착했어요! 대단해요!<br> 파란 대문은 밀어서 열어주세요.</p>
+            <hr><br>
+            <img src="map_blue.jpg" alt="미니맵"><br><br><br><br>
+
+            <div class="toggle-container">
+                <button id="toggleButton" class="btn btn-toggle">[안내] 지름길 가는법</button>
                 <div id="toggleContent" style="display: none;">
                     <div>
-                        <h2 style="background-color: rgba(92, 87, 232, 0.622);">여행가방(캐리어 등) 짐이 없다면</h2><img src="s1.jpg">
+                        <h2 class="heading-accent">여행가방(캐리어 등) 짐이 없다면</h2><img src="s1.jpg" alt="짐 없는 경우">
                     </div>
                     <div>
-                        <h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] 지름길 - [대문 오른쪽 방향]</h2><img src="s2.jpg">
+                        <h2 class="heading-accent">[1] 지름길 - [대문 오른쪽 방향]</h2><img src="s2.jpg" alt="지름길 방향 1">
                     </div>
                     <div>
-                        <h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] 분홍색 벽이 보일때까지 직진</h2><img src="s3.jpg">
+                        <h2 class="heading-accent">[2] 분홍색 벽이 보일때까지 직진</h2><img src="s3.jpg" alt="지름길 방향 2">
                     </div>
                     <div>
-                        <h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] 지하차도 통해서 신길역 도착</h2><img src="s4.jpg">
+                        <h2 class="heading-accent">[3] 지하차도 통해서 신길역 도착</h2><img src="s4.jpg" alt="지름길 방향 3">
                     </div>
-                </div>
-                </div>
-                <br><br>
-
-
-
-        </div>
-        <div class="tab-content" id="englishContent">
-            <div><h2 style=" background-color: rgba(255, 255, 0, 0.622);">[🗺️Info] Full Map</h2><img src="1.jpg">
-        </div>
-        <div>
-            <h2 style="background-color: rgba(255, 255, 0, 0.622);">[1] How to get here - ① Exit</h2><img src="2.jpg">
-        </div>
-        <div>
-            <h2 style="background-color: rgba(255, 255, 0, 0.622);">[2] Go straight until you reach the crosswalk.</h2>
-            <img src="3.jpg">
-        </div>
-        <div>
-            <h2 style="background-color: rgba(255, 255, 0, 0.622);">[3] Cross the crosswalk</h2><img src="4.jpg">
-        </div>
-        <div>
-            <h2 style="background-color: rgba(255, 255, 0, 0.622);">[4] Walking around the high school building</h2><img
-                src="5.jpg">
-        </div>
-        <div>
-            <h2 style="background-color: rgba(255, 255, 0, 0.622);">[5] Past the CU[convenience store]</h2><img
-                src="6.jpg">
-        </div>
-        <div>
-            <h2 style="background-color: rgba(255, 255, 0, 0.622);">[6] Stairs just above the alley on the right past
-                the wall</h2><img src="7.jpg">
-        </div>
-        <div>
-            <h2 style="background-color: rgba(255, 255, 0, 0.622);">[7] Arrival at the blue gate</h2><img src="8.jpg">
-        </div>
-        <p class="awesome-text">Arrived! awesome<br> Please push the front door to open it.</p>
-        <hr><br>
-        <img src="map_blue.jpg" alt="minimap"><br><br><br><br><br><br><br>
-        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-            <button id="toggleButton2" style="border: 3px solid gray; background-color: black;">[info] Short Course</button><br><br>
-            <div id="toggleContent2" style="display: none;">
-                <div>
-                    <h2 style="background-color: rgba(92, 87, 232, 0.622);">- When you have no luggage</h2><img
-                        src="s1.jpg">
-                </div>
-                <div>
-                    <h2 style="background-color: rgba(92, 87, 232, 0.622);">[1] Directions to the subway - [Right]</h2><img
-                        src="s2.jpg">
-                </div>
-                <div>
-                    <h2 style="background-color: rgba(92, 87, 232, 0.622);">[2] pink wall</h2><img src="s3.jpg">
-                </div>
-                <div>
-                    <h2 style="background-color: rgba(92, 87, 232, 0.622);">[3] Directions to the subway</h2><img
-                        src="s4.jpg">
                 </div>
             </div>
+            <br><br>
         </div>
-        
 
+        <div class="tab-content" id="parkinfo">
+            <div>
+                <h2 class="heading-highlight">[🗺️안내] 주차 요금 안내</h2><img src="1.jpg" alt="전체 지도">
+            </div>
+            <hr>
+            <img src="park.jpg" alt="Parking Information" style="width: 80%;">
+            <table class="parking-table">
+                <thead>
+                    <tr>
+                        <th>주차 시간</th>
+                        <th>예상 요금 (1시간당 600원)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>6시간</td>
+                        <td>3,600원</td>
+                    </tr>
+                    <tr>
+                        <td>12시간</td>
+                        <td>7,200원</td>
+                    </tr>
+                    <tr>
+                        <td>24시간 (1일)</td>
+                        <td>14,400원 </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <div style="text-align: center;">
+                <a href="https://naver.me/xtgJXQv9" target="_blank" style="text-decoration: none;">
+                    <button class="btn btn-naver">공영주차장 네이버지도 바로가기</button>
+                </a>
+            </div>
+            <br><br><br>
+        </div>
+
+        <div class="tab-content" id="englishContent" style="display: block;">
+            <div style="text-align: center;">
+                <a href="https://naver.me/GHVMSH65" target="_blank" style="text-decoration: none;">
+                    <button class="btn btn-naver">→ NAVER MAP : App ←</button>
+                </a>
+            </div>
+            <div>
+                <h2 class="heading-highlight">[🗺️Info] Full Map</h2><img src="1.jpg" alt="Full Map">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[1] How to get here - ① Exit</h2><img src="2.jpg" alt="Exit 1">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[2] Go straight until you reach the crosswalk.</h2>
+                <img src="3.jpg" alt="Go Straight">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[3] Cross the crosswalk</h2><img src="4.jpg" alt="Crosswalk">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[4] Walking around the high school building</h2>
+                <img src="5.jpg" alt="Walk around school">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[5] Past the CU[convenience store]</h2><img src="6.jpg" alt="Pass CU">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[6] Stairs just above the alley on the right past the wall</h2><img
+                    src="7.jpg" alt="Alley Stairs">
+            </div>
+            <div>
+                <h2 class="heading-highlight">[7] Arrival at the blue gate</h2><img src="8.jpg" alt="Blue Gate Arrival">
+            </div>
+            <p class="info-text">Arrived! awesome<br> Please push the front door to open it.</p>
+            <hr><br>
+            <img src="map_blue.jpg" alt="Minimap"><br><br><br><br>
+
+            <div class="toggle-container">
+                <button id="toggleButton2" class="btn btn-toggle">[info] Short Course</button>
+                <div id="toggleContent2" style="display: none;">
+                    <div>
+                        <h2 class="heading-accent">- When you have no luggage</h2><img src="s1.jpg" alt="No luggage">
+                    </div>
+                    <div>
+                        <h2 class="heading-accent">[1] Directions to the subway - [Right]</h2><img src="s2.jpg"
+                            alt="Shortcut 1">
+                    </div>
+                    <div>
+                        <h2 class="heading-accent">[2] pink wall</h2><img src="s3.jpg" alt="Shortcut 2">
+                    </div>
+                    <div>
+                        <h2 class="heading-accent">[3] Directions to the subway</h2><img src="s4.jpg" alt="Shortcut 3">
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
 
     </div>
-    </div>
-
     <script>
         window.onload = function () {
             var buttons = document.querySelectorAll('.row button');
-            var koreanContent = document.getElementById('koreanContent');
-            var englishContent = document.getElementById('englishContent');
-            var gasContent = document.getElementById('gasContent');
-            var deliveryContent = document.getElementById('deliveryContent');
+            // Get all tab content divs
+            var tabContents = document.querySelectorAll('.contents .tab-content');
+
+            // Find the initially active button and content
+            var initialActiveButton = document.querySelector('.row button.tab');
+            var initialContentId = '';
+            if (initialActiveButton) {
+                if (initialActiveButton.textContent.trim() === '오시는길') {
+                    initialContentId = 'koreanContent';
+                } else if (initialActiveButton.textContent.trim() === 'Directions') {
+                    initialContentId = 'englishContent';
+                } else if (initialActiveButton.textContent.trim() === 'Using boilers') {
+                    initialContentId = 'gasContent';
+                } else if (initialActiveButton.textContent.trim() === 'Delivery') {
+                    initialContentId = 'deliveryContent';
+                } else if (initialActiveButton.textContent.trim() === '공영주차장 안내') {
+                    initialContentId = 'parkinfo';
+                } else if (initialActiveButton.textContent.trim() === 'Using the Air Conditioner') {
+                    initialContentId = 'airContent';
+                }
+            }
+
+            // Hide all content initially, then show the one corresponding to the active button
+            tabContents.forEach(function (content) {
+                content.style.display = 'none';
+            });
+            if (initialContentId) {
+                const initialContent = document.getElementById(initialContentId);
+                if (initialContent) {
+                    initialContent.style.display = 'block';
+                }
+            }
+
 
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
-                    // 모든 버튼에서 'tab' 클래스를 제거
+                    // Remove 'tab' class from all buttons
                     buttons.forEach(function (btn) {
                         btn.classList.remove('tab');
                     });
 
-                    // 클릭된 버튼에 'tab' 클래스를 추가
+                    // Add 'tab' class to the clicked button
                     this.classList.add('tab');
 
-                    // 모든 탭 내용을 숨김
-                    koreanContent.style.display = 'none';
-                    englishContent.style.display = 'none';
-                    gasContent.style.display = 'none';
-                    deliveryContent.style.display = 'none';
+                    // Hide all tab contents
+                    tabContents.forEach(function (content) {
+                        content.style.display = 'none';
+                    });
 
-                    // 클릭된 버튼에 대응하는 탭 내용을 보임
+                    // Determine which content to show based on button text
+                    var contentIdToShow = '';
                     if (this.textContent.trim() === '오시는길') {
-                        koreanContent.style.display = 'block';
+                        contentIdToShow = 'koreanContent';
                     } else if (this.textContent.trim() === 'Directions') {
-                        englishContent.style.display = 'block';
+                        contentIdToShow = 'englishContent';
                     } else if (this.textContent.trim() === 'Using boilers') {
-                        gasContent.style.display = 'block';
+                        contentIdToShow = 'gasContent';
                     } else if (this.textContent.trim() === 'Delivery') {
-                        deliveryContent.style.display = 'block';
+                        contentIdToShow = 'deliveryContent';
+                    } else if (this.textContent.trim() === '공영주차장 안내') {
+                        contentIdToShow = 'parkinfo';
+                    } else if (this.textContent.trim() === 'Using the Air Conditioner') {
+                        contentIdToShow = 'airContent';
+                    }
+
+                    // Show the corresponding tab content
+                    if (contentIdToShow) {
+                        const contentToShow = document.getElementById(contentIdToShow);
+                        if (contentToShow) {
+                            contentToShow.style.display = 'block';
+                            // Optional: Add animation class here if using class-based animation
+                        }
                     }
                 });
             });
         }
 
-        // JavaScript
+        // Toggle Button JavaScript (Korean)
         document.getElementById('toggleButton').addEventListener('click', function () {
             var toggleContent = document.getElementById('toggleContent');
-            if (toggleContent.style.display === "none") {
+            if (toggleContent.style.display === "none" || toggleContent.style.display === "") { // Check for "" for initial state
                 toggleContent.style.display = "block";
             } else {
                 toggleContent.style.display = "none";
             }
         });
 
+        // Toggle Button JavaScript (English)
         document.getElementById('toggleButton2').addEventListener('click', function () {
             var toggleContent = document.getElementById('toggleContent2');
-            if (toggleContent.style.display === "none") {
+            if (toggleContent.style.display === "none" || toggleContent.style.display === "") { // Check for "" for initial state
                 toggleContent.style.display = "block";
             } else {
                 toggleContent.style.display = "none";
             }
         });
 
+        // Copy to Clipboard function
         function copyToClipboard(text) {
-        navigator.clipboard.writeText(text).then(function() {
-            alert('Copied to clipboard');
-        }, function(err) {
-            console.error('Could not copy text: ', err);
-        });
-    }
+            // Use the modern Navigator Clipboard API if available (more secure)
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function () {
+                    alert('주소가 복사되었습니다!\nAddress copied!'); // More informative alert
+                }, function (err) {
+                    console.error('Could not copy text: ', err);
+                    alert('복사 실패 (Could not copy)');
+                    // Fallback for older browsers might be needed if clipboard API fails
+                });
+            } else {
+                // Fallback for non-secure contexts or older browsers (less reliable)
+                try {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    textArea.style.position = "fixed"; // Prevent scrolling to bottom of page in MS Edge.
+                    textArea.style.left = "-9999px";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('주소가 복사되었습니다!\nAddress copied!');
+                } catch (err) {
+                    console.error('Fallback copy failed: ', err);
+                    alert('복사 실패 (Could not copy)');
+                }
+            }
+        }
     </script>
 </body>
-
 
 </html>
